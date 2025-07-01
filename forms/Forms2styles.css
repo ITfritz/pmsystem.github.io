@@ -1,0 +1,698 @@
+/* General Resets and Box Sizing */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    font-family: Arial, sans-serif;
+    line-height: 1.15; /* Even tighter default line height */
+}
+
+body {
+    margin: 0;
+    padding: 8px; /* Further reduced body padding */
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top of the container */
+    min-height: 100vh;
+    font-size: 8.5px; /* Base font size, critically smaller */
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 15px; /* Adjusted padding, a bit less than previous */
+    border: 1px solid black; /* Outer border as per image */
+    width: 210mm; /* A4 width */
+    /* min-height: 297mm; */ /* Still removed min-height to allow content to push */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px; /* Reduced margin */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.logo img {
+    width: 32px; /* Even smaller logo */
+    height: 32px;
+    margin-right: 6px; /* Reduced margin */
+    border: 1px solid #eee;
+}
+
+.company-info {
+    font-size: 0.85em; /* Adjusted */
+    line-height: 1.05; /* Even tighter line spacing */
+}
+
+.company-info p {
+    margin: 0;
+    white-space: nowrap; /* Prevent company info from wrapping */
+}
+
+.company-info .company-name {
+    font-weight: bold;
+    font-size: 1.05em; /* Adjusted */
+}
+
+.company-info .service-name {
+    font-weight: bold;
+}
+
+.company-info .small-text {
+    font-size: 0.7em; /* Even smaller for this line */
+}
+
+.company-info .address,
+.company-info .contact {
+    font-size: 0.8em;
+}
+
+.report-id {
+    font-size: 1em; /* Adjusted */
+    font-weight: bold;
+    color: red;
+    white-space: nowrap;
+    padding-left: 8px; /* Reduced padding */
+}
+
+.report-id .no {
+    color: black;
+    font-weight: normal;
+}
+
+/* Main Title */
+h1 {
+    text-align: center;
+    font-size: 1.05em; /* Adjusted */
+    margin: 0 0 5px 0; /* Reduced margins */
+    border: 1px solid black;
+    padding: 2.5px 0; /* Reduced padding */
+    background-color: #f0f0f0;
+}
+
+.form-instruction {
+    text-align: center;
+    font-size: 0.7em; /* Smaller instruction text */
+    margin-bottom: 6px; /* Reduced margin */
+}
+
+/* Top Section (Manufacturer, Service Group, Call Code) */
+.section-row {
+    display: flex;
+    border: 1px solid black;
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+.section-row.header-row {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f0f0f0;
+    font-size: 0.8em; /* Smaller font for headers */
+}
+
+.section-row .col-33 {
+    flex: 1;
+    padding: 4px; /* Reduced padding */
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-row .col-33:last-child {
+    border-right: none;
+}
+
+.section-row.input-row input[type="text"] {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Section Titles (e.g., SECTION 1 - Customer Information) */
+.section-title {
+    background-color: #e0e0e0;
+    padding: 4px; /* Reduced padding */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3px; /* Reduced margin */
+    border: 1px solid black;
+    font-size: 0.85em; /* Smaller title */
+}
+
+/* SECTION 1 - Customer Information Grid */
+.customer-info-grid {
+    display: grid;
+    /* Redefined columns for more precision to fix Store-Code/Phone Number overflow */
+    /* label (min-content), input (fractional) */
+    grid-template-columns: min-content 1.5fr min-content 1.5fr min-content 1fr min-content 1fr;
+    gap: 0;
+    margin-bottom: 6px; /* Reduced margin */
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.customer-info-grid .grid-item {
+    padding: 2.5px 4px; /* Reduced padding */
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em; /* Smaller font for grid items */
+    min-height: 20px; /* Minimum height for rows */
+}
+
+.customer-info-grid .grid-item.label {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    white-space: nowrap;
+    justify-content: flex-end; /* Align labels to the right */
+    padding-right: 6px; /* Extra padding for labels */
+}
+
+.customer-info-grid .grid-item input[type="text"],
+.customer-info-grid .grid-item textarea {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 0.9em; /* Adjusted */
+}
+
+/* Full-width items need to span all content columns plus label columns implicitly */
+.customer-info-grid .grid-item.full-width {
+    grid-column: span 7; /* Spans across the remaining 7 columns after the first label */
+    border-right: 1px solid black;
+}
+.customer-info-grid .grid-item.full-width.findings-area {
+    grid-column: span 7;
+}
+.customer-info-grid .grid-item.full-width.no-bottom-border {
+    border-bottom: none;
+}
+
+
+/* Remove border-bottom for the very last rows */
+.customer-info-grid > div:nth-last-child(-n + 2) { /* Covers the last two logical rows with textareas */
+    border-bottom: none;
+}
+
+/* Voltage/Ampere specific styling for alignment */
+.customer-info-grid .voltage-ampere-label {
+    justify-content: flex-start;
+    padding-left: 4px;
+    background-color: transparent;
+    font-size: 0.8em; /* Smaller font for these labels */
+}
+.customer-info-grid .voltage-ampere-input {
+    justify-content: flex-start;
+}
+.customer-info-grid .voltage-ampere-input input {
+    width: 45px; /* Fixed smaller width for these inputs */
+    text-align: center;
+}
+
+
+.service-request-options {
+    display: flex;
+    gap: 6px; /* Reduced gap */
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.service-request-options label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: 0.85em; /* Adjusted */
+    white-space: nowrap;
+}
+
+.service-request-options input[type="checkbox"] {
+    margin-right: 2px; /* Reduced margin */
+    min-width: 9px;
+    min-height: 9px;
+}
+
+/* Findings Area */
+.findings-label {
+    grid-row: span 2;
+    align-items: flex-start;
+    padding-top: 4px;
+}
+
+.findings-area {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.findings-row {
+    display: grid; /* Use grid within findings-row for precise columns */
+    grid-template-columns: min-content 1fr min-content 1fr; /* Label, input, label, input */
+    width: 100%;
+    padding: 2.5px 4px; /* Reduced padding for each row */
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+.findings-row:last-child {
+    border-bottom: none;
+}
+
+.findings-row label {
+    font-weight: bold;
+    margin-right: 6px;
+    min-width: 70px; /* Adjusted to align labels */
+    text-align: right;
+    font-size: 0.85em; /* Adjusted */
+    white-space: nowrap;
+}
+
+.findings-row input[type="text"] {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 1px 2px; /* Smaller padding */
+    font-size: 0.85em; /* Adjusted */
+}
+
+/* Textarea styling */
+.customer-info-grid textarea {
+    min-height: 30px; /* Fixed height for text areas */
+    border: 1px solid #ccc;
+    padding: 2px; /* Reduced padding */
+    font-size: 0.85em; /* Adjusted */
+}
+
+
+/* SECTION 2 - Labor & Travel */
+.labor-travel-grid {
+    display: grid;
+    /* Re-evaluating this complex grid */
+    /* Target: 3 date columns, then the 6 service claim columns, then the 4 labor columns */
+    /* Let's try explicit pixel widths for headers and relative for inputs */
+    grid-template-columns:
+        70px 70px 70px /* 3 Date headers */
+        repeat(6, 1fr) /* 6 Service Claim headers */
+        min-content 1fr 1fr min-content; /* 1. Labor Label, Hours, Rate/Hr, Php. */
+    border: 1px solid black;
+    margin-bottom: 8px; /* Reduced margin */
+    font-size: 0.75em; /* Even smaller font for this section */
+    line-height: 1.1;
+}
+
+.labor-travel-grid .grid-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 2.5px; /* Reduced padding */
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* Specific borders for grid headers */
+.labor-travel-grid .grid-header:nth-child(3), /* Last date header */
+.labor-travel-grid .grid-header:nth-child(9), /* Last service detail header (index 3+6=9) */
+.labor-travel-grid .grid-header:nth-child(13) { /* Last labor expense header (index 9+4=13) */
+    border-right: none;
+}
+
+/* Date input row */
+.date-input-wrapper {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 1.5px 2px; /* Reduced padding */
+}
+.date-input-wrapper:nth-child(3) { /* The third date input wrapper */
+    border-right: 1px solid black; /* Ensure border for this one, as it transitions to next header */
+}
+
+.date-input-wrapper input {
+    flex-grow: 1;
+    border: none;
+    font-size: 0.9em;
+    padding: 0;
+    text-align: center;
+}
+
+.calendar-icon {
+    margin-left: 2px; /* Reduced margin */
+    font-size: 0.9em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Data rows for Labor & Travel */
+.labor-travel-grid input[type="text"] {
+    width: 100%;
+    border: none;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 2.5px; /* Reduced padding */
+    box-sizing: border-box;
+    font-size: 0.85em;
+    text-align: center;
+}
+.labor-travel-grid input[type="text"].last-col {
+    border-right: none;
+}
+
+.labor-travel-grid .numbered-item {
+    padding: 2.5px 4px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: 0.85em; /* Adjusted */
+    white-space: nowrap;
+}
+.labor-travel-grid .numbered-item:last-child {
+    border-right: none;
+}
+
+/* No bottom border for the very last row of items */
+/* Selecting all items in the last logical row */
+.labor-travel-grid > *:nth-last-child(-n + 13) {
+    border-bottom: none !important;
+}
+
+/* Meals and Lodging specific row adjustments */
+.labor-travel-grid .meals-lodging-item {
+    /* These need to span the initial 3 date columns + 6 service claim columns = 9 columns. */
+    /* Then the input takes the last 4 columns */
+    grid-column: span 9;
+    border-right: 1px solid #ddd;
+    text-align: right;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+.labor-travel-grid .meals-lodging-item + input[type="text"] {
+    grid-column: span 4;
+    border-right: none;
+}
+
+.labor-travel-grid .empty-cell {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.labor-travel-grid .empty-cell:nth-child(13n) { /* Last cell in a 13-column row */
+    border-right: none;
+}
+
+
+/* Signature and Payment Section */
+.signature-payment-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px; /* Reduced gap */
+    margin-top: 6px;
+    height: 140px; /* Reduced fixed height to fit more */
+}
+
+.customer-accreditation {
+    flex: 1;
+    border: 1px solid black;
+    padding: 6px; /* Reduced padding */
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.customer-accreditation h3 {
+    margin: 0 0 4px 0; /* Reduced margins */
+    text-align: center;
+    font-size: 0.95em; /* Adjusted */
+    font-weight: bold;
+}
+
+.customer-accreditation p {
+    margin-bottom: 6px; /* Reduced margin */
+    line-height: 1.15;
+}
+
+.signature-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px; /* Reduced space for signatures */
+    position: relative;
+    padding-bottom: 12px; /* Space for labels below */
+}
+
+.signature-line .signature-input,
+.signature-line .date-input,
+.signature-line .time-input {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0 2px;
+    text-align: center;
+    font-size: 0.85em; /* Adjusted */
+    min-width: 45%; /* Ensure inputs have some base width */
+}
+
+.signature-line .date-input, .signature-line .time-input {
+    margin-left: 8px; /* Reduced space between fields */
+}
+
+.signature-line .label-below {
+    position: absolute;
+    font-size: 0.65em; /* Smaller label */
+    color: #555;
+    white-space: nowrap;
+    text-align: center;
+    bottom: 0;
+    line-height: 1; /* Prevent labels from taking too much height */
+}
+
+.signature-line .label-below:nth-of-type(1) { /* "Signature over Printed Name" */
+    left: 0;
+    width: calc(50% - 4px); /* Adjusted width */
+}
+.signature-line .label-below:nth-of-type(2) { /* "Date" */
+    right: 0;
+    width: calc(50% - 4px);
+}
+.signature-line .label-below:nth-of-type(3) { /* "Designation" */
+    left: 0;
+    width: calc(50% - 4px);
+    top: calc(50% + 10px); /* Adjusted positioning for the second row of labels */
+}
+.signature-line .label-below:nth-of-type(4) { /* "TIME IN / OUT" */
+    right: 0;
+    width: calc(50% - 4px);
+    top: calc(50% + 10px);
+}
+
+
+.payment-summary {
+    flex: 1;
+    border: 1px solid black;
+    padding: 6px; /* Reduced padding */
+    display: grid;
+    /* Precise grid for payment summary to fix DR/REF. NO. and TOTAL PARTS overlap */
+    grid-template-columns: min-content 1.5fr min-content 1.5fr; /* label, input, label, input */
+    gap: 2px 4px; /* Reduced gap */
+    font-size: 0.8em; /* Adjusted */
+    position: relative;
+}
+
+.payment-summary .summary-row {
+    display: flex;
+    align-items: center;
+    grid-column: span 4; /* Spans across all 4 columns for full width */
+    margin-bottom: 1px; /* Very small margin between rows */
+}
+
+.payment-summary .summary-row label {
+    font-weight: bold;
+    min-width: 60px; /* Adjusted width to align labels */
+    margin-right: 6px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.payment-summary .summary-row input[type="text"] {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 1px 2px;
+    font-size: 0.85em; /* Adjusted */
+}
+
+.payment-summary .summary-row input[name="total_parts"] {
+    margin-left: 4px; /* Reduced space between total parts label and input */
+    min-width: 50px; /* Ensure this input has some width */
+}
+
+.payment-summary .grand-total-row label {
+    font-size: 0.95em; /* Adjusted */
+    font-weight: bold;
+}
+.payment-summary .grand-total-row input {
+    font-size: 0.95em; /* Adjusted */
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+/* Certified/Checked/Encoded By Section */
+.certified-section,
+.checked-section,
+.encoded-section {
+    border-top: 1px solid black;
+    padding-top: 4px; /* Reduced padding */
+    margin-top: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 0.75em; /* Adjusted */
+}
+/* Re-evaluating column spans for better horizontal alignment */
+.certified-section { grid-column: 1 / span 2; } /* Takes half the width (2 of 4 columns) */
+.checked-section { grid-column: 3 / span 1; } /* Takes 1 of 4 columns */
+.encoded-section { grid-column: 4 / span 1; } /* Takes 1 of 4 columns */
+
+
+.certified-section p,
+.checked-section p,
+.encoded-section p {
+    margin: 0 0 2px 0;
+    font-size: 0.85em; /* Adjusted */
+}
+
+.underline-input {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 95%;
+    margin: 0 auto;
+    padding: 1px 0;
+    text-align: center;
+    font-size: 0.8em; /* Adjusted */
+}
+
+.label-below-input {
+    font-size: 0.6em; /* Even smaller label */
+    margin-top: 2px;
+    display: block;
+    white-space: nowrap;
+}
+
+.footer-note {
+    grid-column: 1 / span 4; /* Spans all 4 columns */
+    text-align: center;
+    font-size: 0.55em; /* Very small text */
+    margin-top: 6px;
+    line-height: 1.1;
+    border-top: 1px solid black;
+    padding-top: 2px; /* Reduced padding */
+    position: absolute;
+    bottom: 3px; /* Closer to bottom */
+    left: 0;
+    right: 0;
+}
+.footer-note p {
+    margin: 0;
+}
+
+
+/* Basic input focus style */
+input:focus, textarea:focus {
+    outline: 1px solid blue;
+    outline-offset: 0px;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Print styles - Essential for accurate "paper size" representation */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .form-container {
+        border: 1px solid black;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm; /* Set exact height for A4 */
+        margin: 0;
+        padding: 8mm; /* Reduced padding for print margins */
+        overflow: hidden; /* Prevent content from overflowing on print */
+    }
+    input, textarea {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        color: black !important;
+        background-color: white !important;
+        border-color: black !important;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .form-row, .form-section {
+        flex-direction: column;
+    }
+
+    .form-row label, .form-section label {
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td, th {
+        padding: 5px;
+    }
+
+    .checkbox-label {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="number"], textarea {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

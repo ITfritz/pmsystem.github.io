@@ -1,0 +1,512 @@
+/* Profile Icon Styling */
+.profile-menu i, .profile-menu img {
+    font-size: 40px; /* For Font Awesome icon */
+    width: 50px; /* For image */
+    height: 30px; /* For image */
+    color:whitesmoke;
+    cursor: pointer; /* Make the icon or image clickable */
+    margin-top: 10px;
+}
+
+.profile-menu i:hover, .profile-menu img:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon/image on hover */
+    color:gray;
+}
+
+.main-header {
+    background-color: #8a0000;
+    color: whitesmoke;
+    padding: 20px;
+    text-align: left;
+    margin-left: 70px;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    font-weight: bold; /* Make text bold */
+}
+
+/* Profile Icon is now handled by .profile-menu i directly, keeping this for clarity */
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 5px;
+    color: white; /* Make sure this is applied if you use a separate class */
+}
+
+.profile-menu li i {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    color: white;
+}
+
+.profile-menu li small {
+    font-size: 12px;
+    color: white;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: -5px;
+    background-color:#8a0000;
+    color: black;
+    min-width: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Better for mobile stacking */
+    gap: 25px;
+    color: #333; /* Consistent text color */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.main-header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Header styling */
+.header {
+    background: linear-gradient(135deg, #8a0000, #660000);
+    padding: 25px;
+    text-align: center;
+    color: #8a0000;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Main Content (if applicable for analytics page) */
+.main-content {
+    flex: 1;
+    margin-left: 80px; /* Adjust for the sidebar width */
+    border-radius: 18px;
+    padding: 30px;
+    color: black;
+    max-width: 1430px;
+    min-width: 320px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* added shadow */
+}
+
+/* Messages */
+.success-message,
+.error-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+.success-message {
+    background: #4CAF50;
+    color: #fff;
+    margin-left: 80px; /* Adjust for sidebar */
+    margin-right: 20px; /* Add some right margin */
+}
+.error-message {
+    background: #F44336;
+    color: #fff;
+    margin-left: 80px; /* Adjust for sidebar */
+    margin-right: 20px; /* Add some right margin */
+}
+
+/* Search Form (if applicable for analytics page) */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+.search-form input {
+    flex: 1;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #333;
+}
+.search-form button {
+    background: #8a0000;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.search-form button:hover {
+    background: #D4AF37;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow: auto; /* Enable scrolling for modal content */
+}
+.modal-content {
+    background: #fff;
+    margin: 5% auto;
+    padding: 25px;
+    width: 800px;
+    max-width: 95%;
+    border-radius: 12px;
+    position: relative;
+    max-height: 90vh; /* Adjust max-height to prevent content overflow */
+    overflow-y: auto; /* Enable scrolling within modal content */
+    overflow-x: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-content .close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: transform 0.5s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+
+.modal-content .close:hover {
+    color: #D32F2F; /* Change color */
+    transform: rotate(180deg); /* Rotate by 180 degrees */
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #8a0000;
+}
+.modal-content form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+.modal-content form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    resize: vertical; /* or 'none' if you want no resizing */
+    padding: 12px; /* Added padding for consistency */
+    border: 1px solid #ccc; /* Added border for consistency */
+    border-radius: 8px; /* Added border-radius for consistency */
+}
+
+.modal-content form input[type="text"],
+.modal-content form input[type="number"], /* Added for amount inputs */
+.modal-content form input[type="date"],
+.modal-content form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+}
+.modal-content form button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em; /* Consistent font size */
+}
+/* Submit Button */
+.status-tag.add {
+    background: #28a745;
+    color: #fff;
+}
+.status-tag.add:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+.status-tag.cancel {
+    background: #dc3545;
+    color: #fff;
+}
+.status-tag.cancel:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Status Done */
+.status-tag.done {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+.status-tag.done:hover {
+    background: #fff;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+    .sidebar {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+    .main-header {
+        margin-left: 0; /* Remove left margin for smaller screens */
+    }
+    .success-message, .error-message {
+        margin-left: 0; /* Remove left margin for smaller screens */
+        margin-right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .main-wrapper1, .main-wrapper2 {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .main-content-left1, .main-content-right1, .analytics-card {
+        min-width: unset; /* Allow shrinking */
+        width: 100%; /* Take full width */
+        margin-left: 0; /* Remove specific left margin */
+    }
+}
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+    }
+    .analytics-card h2 {
+        font-size: 1.5em;
+    }
+    .analytics-card .total-amount {
+        font-size: 2.5em;
+    }
+}
+
+
+/* Wrapper for the entire layout */
+.main-wrapper1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 70px; /* To align with sidebar */
+    margin-right: 20px; /* Some right padding */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Left Content */
+.main-content-left1 {
+    flex: 2;
+    min-width: 450px; /* Adjusted min-width for better display */
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 🟢 prevents overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-content-left1:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Right Content */
+.main-content-right1 {
+    flex: 2;
+    min-width: 450px; /* Adjusted min-width for better display */
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 🟢 prevents overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.main-content-right1:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+
+/* Chart Styles */
+#appointmentChart, #summaryChart {
+    flex: 1;            /* 🟢 make canvas fill remaining space */
+    width: 100%;
+    max-height: 100%;    /* 🟢 prevent overflow */
+    object-fit: contain;  /* 🟢 make sure it fits without stretching */
+    margin-bottom: 55px; /* Adjust margin if needed */
+}
+
+/* Wrapper for the entire layout */
+.main-wrapper2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 70px; /* Align with other content */
+    margin-right: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Common Card Styling */
+.analytics-card {
+    background-color: #fff;
+    width: 48%; /* Adjust width to fit two cards in a row with gap */
+    min-width: 450px; /* Increased min-width for larger content */
+    border-radius: 15px; /* Slightly larger border-radius */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Enhanced shadow */
+    padding: 30px; /* Increased padding */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analytics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.analytics-card h2 {
+    margin-top: 0;
+    font-size: 1.8em; /* Made heading larger */
+    color: #333;
+}
+
+.analytics-card .total-amount {
+    font-size: 3.5em; /* Made numbers significantly larger */
+    font-weight: bold;
+    margin-bottom: 25px; /* Increased margin */
+    color: #000; /* Black color for the amount */
+    text-align: center; /* Center the amount */
+}
+
+.analytics-card .chart-container {
+    width: 100%;
+    height: 300px; /* Increased chart height */
+    margin-bottom: 20px;
+    display: flex; /* To center chart */
+    justify-content: center; /* To center chart */
+    align-items: center; /* To center chart */
+}
+
+.analytics-card .buttons {
+    display: flex;
+    gap: 10px; /* Adjusted gap between buttons */
+    justify-content: center; /* Center the buttons */
+    margin-top: 15px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+/* New button style for "Add Data" - adjusted for medium size */
+.analytics-card .add-data-buttons {
+     background-color: #8a0000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px; /* Medium size padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Medium size font */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.analytics-card .add-data-buttons:hover {
+     background-color: #660000;
+    transform: translateY(-2px);
+}
+
+/* Adjusted regular buttons for medium size */
+.analytics-card .buttons button {
+    background-color: #8a0000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px; /* Medium size padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Medium size font */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.analytics-card .buttons button:hover {
+    background-color: #660000;
+    transform: translateY(-2px);
+}
+
+.view-button {
+    background-color: #8a0000; /* Red color */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 5px; /* Space between buttons */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.view-button:hover {
+    background-color: #660000; /* Darker red on hover */
+}
